@@ -6,11 +6,11 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 00:00:34 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/12/18 00:26:39 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/12/18 13:24:40 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.hpp"
+#include "Utils.hpp"
 #include "Contact.hpp"
 
 bool	Contact::is_empty(void)
@@ -30,7 +30,7 @@ int	Contact::get_index(void)
 
 void	Contact::set_first_name(void)
 {
-	while (utils_is_empty_line(this->first_name))
+	while (Utils::is_empty_line(this->first_name))
 	{
 		std::cout << "First name: ";
 		std::getline(std::cin, this->first_name);
@@ -44,7 +44,7 @@ std::string	Contact::get_first_name(void)
 
 void	Contact::set_last_name(void)
 {
-	while (utils_is_empty_line(this->last_name))
+	while (Utils::is_empty_line(this->last_name))
 	{
 		std::cout << "Last name: ";
 		std::getline(std::cin, this->last_name);
@@ -58,7 +58,7 @@ std::string	Contact::get_last_name(void)
 
 void	Contact::set_nickname(void)
 {
-	while (utils_is_empty_line(this->nickname))
+	while (Utils::is_empty_line(this->nickname))
 	{
 		std::cout << "Nickname: ";
 		std::getline(std::cin, this->nickname);
@@ -72,7 +72,7 @@ std::string Contact::get_nickname(void)
 
 void	Contact::set_phone_num(void)
 {
-	while (utils_is_empty_line(this->phone_num))
+	while (Utils::is_empty_line(this->phone_num))
 	{
 		std::cout << "Phone number: ";
 		std::getline(std::cin, this->phone_num);
@@ -86,7 +86,7 @@ std::string	Contact::get_phone_num(void)
 
 void	Contact::set_secret(void)
 {
-	while (utils_is_empty_line(this->dark_secret))
+	while (Utils::is_empty_line(this->dark_secret))
 	{
 		std::cout << "Dark secret: ";
 		std::getline(std::cin, this->dark_secret);

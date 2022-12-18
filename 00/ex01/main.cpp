@@ -6,12 +6,12 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:10:54 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/12/17 13:09:46 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/12/18 13:24:48 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "utils.hpp"
+#include "Utils.hpp"
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
@@ -44,7 +44,7 @@ int main(void)
 	
 	while (command != "EXIT")
 	{
-		utils_clear_screen();
+		Utils::clear_screen();
 		display_prompt();
 		get_command(command);
 		execute_command(command, phonebook);
