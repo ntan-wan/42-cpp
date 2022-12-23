@@ -6,15 +6,15 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:07:32 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/12/21 18:56:16 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/12/23 09:57:46 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-const int   Fixed::fracBit_ = 8;
+const int   Fixed::m_fractBits = 8;
 
-Fixed::Fixed() : value_(0)
+Fixed::Fixed() : m_fixPtValue(0)
 {
     std::cout << "Default constructor called" << std::endl;
 }
@@ -33,17 +33,17 @@ Fixed::Fixed(Fixed const &copy)
 Fixed   &Fixed::operator=(Fixed const &copy)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    this->value_ = copy.getRawbits();
+    this->m_fixPtValue = copy.getRawBits();
     return (*this);
 }
 
-int     Fixed::getRawbits(void) const
+int     Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
-    return (this->value_);
+    return (this->m_fixPtValue);
 }
 
 void    Fixed::setRawBits(const int raw)
 {
-    this->value_ = raw;
+    this->m_fixPtValue = raw;
 }

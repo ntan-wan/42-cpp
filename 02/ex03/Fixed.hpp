@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:52:08 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/12/22 22:40:33 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/12/23 09:57:46 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 class Fixed
 {
 private:
-	int         		value_;
-	static const int	fracBit_;
+	int         		m_fixPtValue;
+	static const int	m_fractBits;
 public:
 	Fixed();
 	Fixed(Fixed const &copy);
