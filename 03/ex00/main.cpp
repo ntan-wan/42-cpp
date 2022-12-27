@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 08:59:33 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/12/27 14:52:00 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:24:31 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ void	print_both_status(ClapTrap &cp1, ClapTrap &cp2)
 	std::cout << cp2;
 	std::cout << "\n";
 }
-
-// void	reset_both_status(ClapTrap &cp1, ClapTrap &cp2)
-// {
-// 	cp1 = ClapTrap("Jason");
-// 	cp2 = ClapTrap("Nigel");
-// }
 
 void	print_dashes(int count)
 {
@@ -77,7 +71,15 @@ void	test_repair(ClapTrap &cp1, ClapTrap &cp2)
 {
 	print_title("TEST_REPAIR");
 	print_both_status(cp1, cp2);
-	cp1.setDamage(10);
+	cp1.setDamage(5);
+	cp2.setHitPoint(10);
+	cp2.takeDamage(cp1.getDamage());
+	cp2.beRepaired(3);
+	print_both_status(cp1, cp2);
+
+	print_title("TEST_REPAIR_DEAD");
+	print_both_status(cp1, cp2);
+	cp1.setDamage(cp2.getHitPoint());
 	cp2.takeDamage(cp1.getDamage());
 	cp2.beRepaired(5);
 	print_both_status(cp1, cp2);
@@ -100,6 +102,11 @@ void	test_death(ClapTrap &cp1, ClapTrap &cp2)
 	cp1.setDamage(cp2.getHitPoint());
 	cp1.attack(cp2.getName());
 	cp2.takeDamage(cp1.getDamage());
+	print_both_status(cp1, cp2);
+
+	print_title("TEST_DEATH_ZOMBIE");
+	print_both_status(cp1, cp2);
+	cp2.attack(cp1.getName());
 	print_both_status(cp1, cp2);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:34:17 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/12/27 14:30:52 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:03:39 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ClapTrap::~ClapTrap()
 
 void    ClapTrap::attack(const std::string &target)
 {
-	if (this->m_energy_point)
+	if (this->m_energy_point && this->m_hitpoint)
 	{
 		this->m_energy_point--;
 		std::cout << this->m_name
@@ -40,8 +40,10 @@ void    ClapTrap::attack(const std::string &target)
 			<< ", damage " << this->m_attack_damage
 			<< " points" << std::endl;
 	}
-	else
+	else if (!this->m_energy_point)
 		std::cout << this->m_name << ": no energy to attack" << std::endl;
+	else if (!this->m_hitpoint)
+		std::cout << this->m_name << ": is dead, can't attack" << std::endl;
 }
 
 void    ClapTrap::takeDamage(unsigned int amount)
@@ -61,7 +63,7 @@ void    ClapTrap::takeDamage(unsigned int amount)
 
 void    ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->m_energy_point)
+	if (this->m_energy_point && this->m_hitpoint)
 	{
 		this->m_energy_point--;
 		this->m_hitpoint += amount;
@@ -69,8 +71,10 @@ void    ClapTrap::beRepaired(unsigned int amount)
 			<< ": is repaired by " << amount
 			<< " points" << std::endl;
 	}
-	else
+	else if (!this->m_energy_point)
 		std::cout << this->m_name << ": no energy to repair" << std::endl;
+	else if (!this->m_hitpoint)
+		std::cout << this->m_name << ": is dead, can't repair" << std::endl;
 }
 
 /* ----------setters---------- */
