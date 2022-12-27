@@ -6,14 +6,14 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:32:12 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/12/23 09:11:59 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/12/27 13:59:19 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #define RED "\033[31m"
 #define GREEN "\033[32m"
-#define COLOR_OFF "\033[0m"
+#define RESET "\033[0m"
 
 bool bsp(const Point a, const Point b, const Point c, const Point point);
 
@@ -25,9 +25,9 @@ void	util_print_point(const Point &point, std::string name)
 void	util_print_result(const Point &a, const Point &b, const Point &c, const Point &point)
 {
 	if (bsp(a, b, c, point) == true)
-		std::cout << "Point is inside the triangle: " << GREEN << "TRUE" << COLOR_OFF << std::endl;
+		std::cout << "Point is inside the triangle: " << GREEN << "TRUE" << RESET << std::endl;
 	else
-		std::cout << "Point inside the triangle: " << RED << "FALSE\033[0m" << COLOR_OFF << std::endl;
+		std::cout << "Point inside the triangle: " << RED << "FALSE\033[0m" << RESET << std::endl;
 }
 
 int main(void)

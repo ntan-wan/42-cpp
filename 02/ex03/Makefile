@@ -14,7 +14,7 @@ OBJS = $(notdir $(SRCS:.cpp=.o))
 OBJS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
 #text_color
-COLOR_OFF =\033[0m
+RESET =\033[0m
 RED =\033[0;31m
 GREEN =\033[0;32m
 YELLOW =\033[0;33m
@@ -26,20 +26,20 @@ all : $(NAME)
 $(OBJS_DIR)%.o : %.cpp
 	@mkdir -p $(OBJS_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(GREEN)Compiling : $< $(COLOR_OFF)"
+	@echo "$(GREEN)Compiling : $< $(RESET)"
 
 $(NAME) : $(OBJS_PREFIXED)
 	@$(CC) $(CFLAGS) $(OBJS_PREFIXED) -o $(NAME)
-	@echo "$(CYAN)$(NAME) done !$(COLOR_OFF)"
+	@echo "$(CYAN)$(NAME) done !$(RESET)"
 
 
 clean :
 	@rm -rf $(OBJS_DIR)
-	@echo "$(RED)Removed : obj files ($(NAME))$(COLOR_OFF)"
+	@echo "$(RED)Removed : obj files ($(NAME))$(RESET)"
 
 fclean : clean rmt
 	@rm -rf $(NAME)
-	@echo "$(RED)Removed : $(NAME)$(COLOR_OFF)"
+	@echo "$(RED)Removed : $(NAME)$(RESET)"
 
 re : fclean all
 

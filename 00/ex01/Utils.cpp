@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:19:20 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/12/18 13:25:13 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/12/27 13:59:19 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	Utils::put_dashes(int count)
 
 void	Utils::put_colored_text(std::string color, std::string text)
 {
-	std::cout << color << text << COLOR_OFF << std::endl;
+	std::cout << color << text << RESET << std::endl;
 }
 
 static bool is_spaces_only(std::string line)

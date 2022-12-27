@@ -1,4 +1,4 @@
-NAME = phonebook
+NAME = claptrap
 UNAME = $(shell uname)
 
 CC = c++
@@ -32,16 +32,32 @@ $(NAME) : $(OBJS_PREFIXED)
 	@$(CC) $(CFLAGS) $(OBJS_PREFIXED) -o $(NAME)
 	@echo "$(CYAN)$(NAME) done !$(RESET)"
 
-bonus : all
 
 clean :
 	@rm -rf $(OBJS_DIR)
 	@echo "$(RED)Removed : obj files ($(NAME))$(RESET)"
 
-fclean : clean
+fclean : clean rmt
 	@rm -rf $(NAME)
 	@echo "$(RED)Removed : $(NAME)$(RESET)"
 
 re : fclean all
 
-.PHONY : clean fclean all re
+.PHONY : clean fclean all re test
+
+# Tester
+TEST_FILE = test.txt
+TEST_CONTENT = this is a test file
+TEST_WORD = test
+NEW_WORD = awesome
+test :
+	@touch $(TEST_FILE)
+	@printf "Filename: %s\n" $(TEST_FILE)
+	@echo $(TEST_CONTENT) > $(TEST_FILE)
+	@printf "Content: "; cat $(TEST_FILE)
+	@printf "Command: ";
+	./$(NAME) $(TEST_FILE) $(TEST_WORD) $(NEW_WORD)
+	@printf "Content: "; cat $(TEST_FILE).replace
+
+rmt :
+	@rm -rf $(TEST_FILE) $(TEST_FILE).replace
