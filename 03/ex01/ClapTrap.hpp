@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 00:19:30 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/12/28 23:14:21 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2022/12/28 22:35:45 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 class	ClapTrap
 {
-private:
-	std::string		m_name;
+protected:
+	std::string	m_name;
 	unsigned int	m_hitpoint;
 	unsigned int	m_energy_point;
 	unsigned int	m_attack_damage;
@@ -38,7 +38,7 @@ public:
 	ClapTrap(const ClapTrap &src);
 	
 	//destructor
-	~ClapTrap();
+	virtual ~ClapTrap();
 
 	//member functions
 	virtual void	attack(const std::string &target);
