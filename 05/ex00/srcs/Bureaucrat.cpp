@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 14:40:45 by ntan-wan          #+#    #+#             */
-/*   Updated: 2023/02/01 14:08:14 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:36:02 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,27 @@
 
 //constructors
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : m_name("Default")
 {
-	this->m_name = "Default";
 	this->m_grade = 150;
 	std::cout << this->getName() << ", with Bureaucrat grade " << this->getGrade() << " is constructed" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade)
+Bureaucrat::Bureaucrat(const std::string name, int grade) : m_name(name)
 {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	else
-	{
-		this->m_name = name;
 		this->m_grade = grade;
-	}
 	std::cout << this->getName() << ", with Bureaucrat grade " << this->getGrade() << " is constructed" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+Bureaucrat::Bureaucrat(const Bureaucrat &copy) : m_name(copy.getName() + "_copy")
 {
 	*this = copy;
-	std::cout << this->getName() << "_copy, with Bureaucrat grade " << this->getGrade() << " copied value from " << copy.getName() << std::endl;
+	std::cout << this->getName() << ", with Bureaucrat grade " << this->getGrade() << " copied value from " << copy.getName() << std::endl;
 }
 
 //destructor
@@ -53,10 +49,7 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &src)
 {
 	if (this != &src)
-	{
-		this->m_name = src.getName() + "_assigned";
 		this->m_grade = src.getGrade();
-	}
 	return (*this);
 }
 

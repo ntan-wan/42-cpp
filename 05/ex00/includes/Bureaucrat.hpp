@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:14:13 by ntan-wan          #+#    #+#             */
-/*   Updated: 2023/02/01 13:42:25 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:29:14 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 class   Bureaucrat
 {
 private:
-	std::string	m_name;
-	size_t		m_grade;
+	const std::string	m_name;
+	size_t				m_grade;
 	
 public:
 
