@@ -3,12 +3,15 @@ UNAME = $(shell uname)
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+
 MODE = none
 ifeq ($(MODE), debug)
 	CFLAGS += -fsanitize=address
 endif
 
-SRCS = $(shell find *.cpp)
+rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
+
+SRCS = $(call rwildcard,,*.cpp)
 OBJS_DIR = objs/
 OBJS = $(notdir $(SRCS:.cpp=.o))
 OBJS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))

@@ -6,7 +6,7 @@
 /*   By: ntan-wan <ntan-wan@42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:31:28 by ntan-wan          #+#    #+#             */
-/*   Updated: 2022/12/18 13:24:56 by ntan-wan         ###   ########.fr       */
+/*   Updated: 2023/03/23 22:49:39 by ntan-wan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,8 @@ void PhoneBook::contact_check(int index)
 }
 
 /* 
-	-Check whether the contacts is empty.
-	-Get index input from user.
-	-Call contact_check().
+	@brief Check whether the contacts is empty.
+	@note Get index input from user.
  */
 void	PhoneBook::contact_search(void)
 {

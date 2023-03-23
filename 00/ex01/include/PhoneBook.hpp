@@ -10,7 +10,7 @@
 class PhoneBook
 {
 private:
-	Contact	contacts[8];
+	Contact	contacts[MAX_CONTACTS];
 public:
 	void	contact_add(void);
 	void	contact_check(int i);
